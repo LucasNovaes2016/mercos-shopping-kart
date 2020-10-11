@@ -9,3 +9,7 @@ export interface ISalesInfo {
   pagamento_info: string;
   desconto_info: string;
 }
+
+export interface IApplicationState {
+  produtos_carrinho: any;
+}

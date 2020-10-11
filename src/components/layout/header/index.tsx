@@ -11,14 +11,16 @@ import {
 export default function Header() {
   return (
     <>
-      <div className="container">
-        <HeaderTop
-          numero={numero_default}
-          local={local_default}
-          usuario={usuario_default}
-        />
-        <Logo />
-        <HeaderBottom />
+      <div className="header fixed-top bg-white">
+        <div className="container">
+          <HeaderTop
+            numero={numero_default}
+            local={local_default}
+            usuario={usuario_default}
+          />
+          <Logo />
+          <HeaderBottom />
+        </div>
       </div>
     </>
   );
