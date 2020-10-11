@@ -80,9 +80,44 @@
   border-radius: 0px !important;
 }
 
+.sales-info {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  background-color: #f5f5f5;
+  margin: 20px 0px 20px 0px;
+  border-top: 2px solid #e0e0e0;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.sales-info-item-right {
+  text-align: right;
+}
+
+.sales-info-item-center {
+  text-align: center;
+}
+
+.sales-info-item-left {
+  text-align: left;
+}
+
 /* Estilização do componente de notificações */
 
 .Toastify__toast {
   height: 80px;
   font-size: 1.1rem;
+}
+
+/* Media Querys para responsividade */
+
+@media only screen and (max-width: 992px) {
+  .sales-info-item {
+    text-align: center;
+  }
+
+  .header-bottom-kart-total {
+    text-align: center;
+    margin-top: 10px;
+  }
 }

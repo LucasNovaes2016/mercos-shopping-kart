@@ -5,7 +5,7 @@ import HeaderBottomKartTotal from "./headerbottomkarttotal";
 
 export default function HeaderBottom() {
   return (
-    <div className="header-bottom d-flex justify-content-between">
+    <div className="header-bottom d-lg-flex justify-content-between">
       <div className="py-2">
         <HeaderBottomMenuItems />
       </div>

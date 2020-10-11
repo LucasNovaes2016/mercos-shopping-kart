@@ -1,5 +1,5 @@
 import React from "react";
-import LogoComponent from "./logocomponent";
+import Logo from "./logo";
 import HeaderBottom from "./headerbottom";
 import HeaderTop from "./headertop";
 import {
@@ -11,13 +11,15 @@ import {
 export default function Header() {
   return (
     <>
-      <HeaderTop
-        numero={numero_default}
-        local={local_default}
-        usuario={usuario_default}
-      />
-      <LogoComponent />
-      <HeaderBottom />
+      <div className="container">
+        <HeaderTop
+          numero={numero_default}
+          local={local_default}
+          usuario={usuario_default}
+        />
+        <Logo />
+        <HeaderBottom />
+      </div>
     </>
   );
 }

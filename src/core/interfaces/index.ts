@@ -4,10 +4,8 @@ export interface IHeaderTop {
   local: string;
 }
 
-// export interface IHeaderBottom {
-//   cod: number;
-//   name: string;
-//   brand: string;
-//   description: string;
-//   price: number;
-// }
+export interface ISalesInfo {
+  delivery_info: string;
+  pagamento_info: string;
+  desconto_info: string;
+}
