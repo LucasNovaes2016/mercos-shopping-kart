@@ -1,13 +1,13 @@
-export interface IHeaderInfo {
+export interface IHeaderTop {
   numero: string;
   usuario: string;
   local: string;
 }
 
-export interface IHeaderMenu {
-  cod: number;
-  name: string;
-  brand: string;
-  description: string;
-  price: number;
-}
+// export interface IHeaderBottom {
+//   cod: number;
+//   name: string;
+//   brand: string;
+//   description: string;
+//   price: number;
+// }

@@ -1,1 +1,1 @@
-export { default as HeaderInfo } from "./layout/headerinfo";
+export { default as Header } from "./layout/header";
