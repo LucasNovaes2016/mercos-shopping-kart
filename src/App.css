@@ -1,5 +1,15 @@
 /* CSS GERAL */
 
+.header-info {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.header-info-item {
+  display: inline-block;
+}
+
 .Toastify__toast {
   height: 80px;
   font-size: 1.1rem;
