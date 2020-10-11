@@ -1,1 +1,6 @@
 /* CSS GERAL */
+
+.Toastify__toast {
+  height: 80px;
+  font-size: 1.1rem;
+}
