@@ -2,15 +2,19 @@ import React from "react";
 import KartList from "./kartlist";
 import KartTitle from "./karttitle";
 
-export default function Kart() {
+export interface IKart {
+  lista_produtos: any;
+}
+
+export default function Kart({ lista_produtos }: IKart) {
   return (
     <div className="container">
       <KartTitle />
       <div className="row">
-        <div className="col-md-8">
-          <KartList />
+        <div className="col-lg-8">
+          <KartList lista_produtos={lista_produtos} />
         </div>
-        <div className="col-md-4"></div>
+        <div className="col-lg-4"></div>
       </div>
     </div>
   );

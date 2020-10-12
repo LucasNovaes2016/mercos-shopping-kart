@@ -20,7 +20,7 @@ export default (state = initialState, action: any) => {
           if (produto.id === action.payload.id) {
             return {
               ...produto,
-              quantidade: action.payload.quantidade,
+              quantidade_escolhida: action.payload.quantidade_escolhida,
             };
           } else return { ...produto };
         }),

@@ -19,11 +19,11 @@ export const adicionarObservacaoProdutoCarrinho = (
 // Alterar quantidade do produto
 export const alterarQuantidadeProdutoCarrinho = (
   id: number,
-  quantidade: number
+  quantidade_escolhida: number
 ) => {
   return {
     type: ALTERAR_QUANTIDADE_PRODUTO_CARRINHO,
-    payload: { id, quantidade },
+    payload: { id, quantidade_escolhida },
   };
 };
 

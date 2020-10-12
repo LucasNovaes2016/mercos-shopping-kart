@@ -118,6 +118,60 @@
   letter-spacing: -1.5px;
 }
 
+.kart-item {
+  padding: 10px 0px 15px 0px;
+}
+
+.kart-item-img {
+  padding-right: 30px;
+  padding-left: 10px;
+}
+
+.kart-item-info {
+  margin: 0px 10px;
+  display: inline-block;
+}
+
+.kart-item-info-name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  max-width: 200px;
+}
+
+.kart-item-info-sku {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.kart-item-info-obs {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  display: inline-block;
+}
+
+.kart-item-quantity {
+  margin: 0px 10px;
+  display: inline-block;
+}
+
+.kart-item-quantity-number {
+  text-align: center !important;
+  width: 50px !important;
+  border: none !important;
+  background: white !important;
+}
+
+.kart-item-price-trash {
+  padding: 0px 10px;
+  display: inline-block;
+}
+
 /* Estilização do componente de notificações */
 
 .Toastify__toast {

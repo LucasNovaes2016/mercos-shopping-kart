@@ -10,11 +10,14 @@ import {
   desconto_info_default,
   pagamento_info_default,
 } from "./core/data/local";
-import store from "../src/core/redux/store";
 import { Provider } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { SETAR_PRODUTOS_CARRINHO } from "./core/redux/types";
 
 function App() {
   const [listaProdutos, setListaProdutos] = React.useState<any>([]);
+
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     axios
@@ -23,6 +26,18 @@ function App() {
         if (response && response.data) {
           if (response.data.length) {
             setListaProdutos(response.data);
+            const produtos_carrinho = response.data.map((produto: any) => {
+              return {
+                id: produto.id,
+                quantidade_escolhida: 0,
+                observacao: "",
+              };
+            });
+
+            dispatch({
+              type: SETAR_PRODUTOS_CARRINHO,
+              payload: produtos_carrinho,
+            });
 
             toast.success("Produto(s) carregados com sucesso.");
           } else {
@@ -37,22 +52,19 @@ function App() {
 
   return (
     <>
-      <Provider store={store}>
-        <Router>
-          <Header />
-          <SalesInfo
-            delivery_info={delivery_info_default}
-            pagamento_info={pagamento_info_default}
-            desconto_info={desconto_info_default}
-          />
-          <Kart />
-
-          <ToastContainer
-            autoClose={5000}
-            position={toast.POSITION.BOTTOM_RIGHT}
-          />
-        </Router>
-      </Provider>
+      <Router>
+        <Header />
+        <SalesInfo
+          delivery_info={delivery_info_default}
+          pagamento_info={pagamento_info_default}
+          desconto_info={desconto_info_default}
+        />
+        <Kart lista_produtos={listaProdutos} />
+        <ToastContainer
+          autoClose={5000}
+          position={toast.POSITION.BOTTOM_RIGHT}
+        />
+      </Router>
     </>
   );
 }
