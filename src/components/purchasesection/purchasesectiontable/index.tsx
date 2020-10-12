@@ -128,7 +128,10 @@ export default function PurchaseSectionTable({
                     filtrarProdutosCarrinho(produto_formatado, texto_pesquisado)
                   )
                   .map((produto_encontrado: any) => (
-                    <PurchaseSectionTableItem item={produto_encontrado} />
+                    <PurchaseSectionTableItem
+                      key={produto_encontrado.id}
+                      item={produto_encontrado}
+                    />
                   ))
               ) : (
                 <tr>
@@ -142,13 +145,20 @@ export default function PurchaseSectionTable({
               )
             ) : listaProdutosFormatados.length ? (
               listaProdutosFormatados.map((produto_formatado: any) => (
-                <PurchaseSectionTableItem item={produto_formatado} />
+                <PurchaseSectionTableItem
+                  key={produto_formatado.id}
+                  item={produto_formatado}
+                />
               ))
             ) : (
-              <td colSpan={5}>
-                {" "}
-                <p className="lead p-2">Não há produtos no carrinho...</p>{" "}
-              </td>
+              <tr>
+                <td colSpan={5}>
+                  {" "}
+                  <p className="lead p-2">
+                    Não há produtos no carrinho...
+                  </p>{" "}
+                </td>
+              </tr>
             )}
           </tbody>
         </table>
