@@ -53,7 +53,7 @@ function App() {
   return (
     <>
       <Router>
-        <Header />
+        <Header lista_produtos={listaProdutos} />
         <SalesInfo
           delivery_info={delivery_info_default}
           pagamento_info={pagamento_info_default}

@@ -3,7 +3,11 @@ import HeaderBottomMenuItems from "./headerbottommenuitems/HeaderBottomMenuItems
 import HeaderBottomSearchInput from "./headerbottomsearchinput";
 import HeaderBottomKartTotal from "./headerbottomkarttotal";
 
-export default function HeaderBottom() {
+export interface IHeaderBottom {
+  lista_produtos: any;
+}
+
+export default function HeaderBottom({ lista_produtos }: IHeaderBottom) {
   return (
     <div className="header-bottom d-lg-flex justify-content-between">
       <div className="py-2">
@@ -13,7 +17,7 @@ export default function HeaderBottom() {
         <HeaderBottomSearchInput />
       </div>
       <div>
-        <HeaderBottomKartTotal />
+        <HeaderBottomKartTotal lista_produtos={lista_produtos} />
       </div>
     </div>
   );

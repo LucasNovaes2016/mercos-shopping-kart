@@ -16,7 +16,7 @@ export default function Kart({ lista_produtos }: IKart) {
           <KartList lista_produtos={lista_produtos} />
         </div>
         <div className="col-lg-4">
-          <KartPurchase />
+          <KartPurchase lista_produtos={lista_produtos} />
         </div>
       </div>
     </div>

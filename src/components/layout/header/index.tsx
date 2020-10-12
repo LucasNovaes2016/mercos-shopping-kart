@@ -8,7 +8,11 @@ import {
   usuario_default,
 } from "../../../core/data/local";
 
-export default function Header() {
+export interface IHeader {
+  lista_produtos: any;
+}
+
+export default function Header({ lista_produtos }: IHeader) {
   return (
     <>
       <div className="header fixed-top bg-white">
@@ -19,7 +23,7 @@ export default function Header() {
             usuario={usuario_default}
           />
           <Logo />
-          <HeaderBottom />
+          <HeaderBottom lista_produtos={lista_produtos} />
         </div>
       </div>
     </>

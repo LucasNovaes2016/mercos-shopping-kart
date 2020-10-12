@@ -201,7 +201,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 20px;
-  padding: 15px 0px 10px 10px;
+  padding: 15px 10px 10px 10px;
 }
 
 .kart-purchase-total {
@@ -212,8 +212,10 @@
   padding: 10px;
 }
 
-.kart-purchase-button {
+.kart-purchase-button-div {
   padding: 10px;
+}
+.kart-purchase-button {
   height: 50px;
 }
 
