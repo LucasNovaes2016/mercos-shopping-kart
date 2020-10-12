@@ -6,6 +6,10 @@
   color: #e53935;
 }
 
+.primary-background {
+  background-color: #e53935 !important;
+}
+
 .secondary-shade-1 {
   color: #212121;
 }
@@ -177,6 +181,40 @@
 .kart-item-price-trash {
   padding: 0px 10px;
   display: inline-block;
+}
+
+.kart-purchase {
+  padding: 10px;
+}
+
+.kart-purchase-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: 0.1px;
+  padding: 0px 10px 15px 10px;
+}
+
+.kart-purchase-info {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 15px 0px 10px 10px;
+}
+
+.kart-purchase-total {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 30px;
+  padding: 10px;
+}
+
+.kart-purchase-button {
+  padding: 10px;
+  height: 50px;
 }
 
 /* Estilização do componente de notificações */

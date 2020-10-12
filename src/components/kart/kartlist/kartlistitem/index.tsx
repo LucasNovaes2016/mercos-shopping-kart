@@ -10,6 +10,7 @@ import {
   ALTERAR_QUANTIDADE_PRODUTO_CARRINHO,
   ADICIONAR_OBSERVACAO_PRODUTO_CARRINHO,
 } from "../../../../core/redux/types";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function KartListItem({ produto_formatado }: any) {
   const [modoAdicionarObservacao, setModoAdicionarObservacao] = React.useState<
@@ -24,6 +25,8 @@ export default function KartListItem({ produto_formatado }: any) {
       type: REMOVER_PRODUTO_CARRINHO,
       payload: id,
     });
+
+    toast.success(`O produto ${produto_formatado.nome} foi removido.`);
   };
 
   const handleChangeQuantidadeEscolhida = (operation: string) => {

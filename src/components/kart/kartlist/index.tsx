@@ -51,8 +51,6 @@ export default function KartList({ lista_produtos }: IKartList) {
     );
   }, [produtos_carrinho]);
 
-  console.log("Texto Pesquisado = ", texto_pesquisado);
-
   return (
     <>
       {texto_pesquisado.length ? (

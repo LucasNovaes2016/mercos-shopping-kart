@@ -61,7 +61,7 @@ function App() {
         />
         <Kart lista_produtos={listaProdutos} />
         <ToastContainer
-          autoClose={5000}
+          autoClose={3000}
           position={toast.POSITION.BOTTOM_RIGHT}
         />
       </Router>

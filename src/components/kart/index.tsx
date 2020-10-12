@@ -1,5 +1,6 @@
 import React from "react";
 import KartList from "./kartlist";
+import KartPurchase from "./kartpurchase";
 import KartTitle from "./karttitle";
 
 export interface IKart {
@@ -14,7 +15,9 @@ export default function Kart({ lista_produtos }: IKart) {
         <div className="col-lg-8">
           <KartList lista_produtos={lista_produtos} />
         </div>
-        <div className="col-lg-4"></div>
+        <div className="col-lg-4">
+          <KartPurchase />
+        </div>
       </div>
     </div>
   );
