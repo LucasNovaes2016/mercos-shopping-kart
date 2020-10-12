@@ -3,7 +3,7 @@ import "./App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Header, SalesInfo, Kart } from "./components";
+import { Header, SalesInfo, Kart, PurchaseSection } from "./components";
 import axios from "axios";
 import {
   delivery_info_default,
@@ -59,7 +59,15 @@ function App() {
           pagamento_info={pagamento_info_default}
           desconto_info={desconto_info_default}
         />
-        <Kart lista_produtos={listaProdutos} />
+        <Switch>
+          <Route path="/finalizacao-pedido">
+            <PurchaseSection lista_produtos={listaProdutos} />
+          </Route>
+          <Route path="/">
+            <Kart lista_produtos={listaProdutos} />
+          </Route>
+        </Switch>
+
         <ToastContainer
           autoClose={3000}
           position={toast.POSITION.BOTTOM_RIGHT}

@@ -10,6 +10,10 @@
   background-color: #e53935 !important;
 }
 
+.secondary-background {
+  background-color: #616161 !important;
+}
+
 .secondary-shade-1 {
   color: #212121;
 }
@@ -217,6 +221,21 @@
 }
 .kart-purchase-button {
   height: 50px;
+}
+
+/* Estilização para o componente de finalização de compra */
+.purchase-section-table-scrollbar {
+  position: relative;
+  height: 200px;
+  overflow: auto;
+}
+
+.purchase-section-table-wrapper-scroll-y {
+  display: block;
+}
+
+.table th {
+  text-align: center;
 }
 
 /* Estilização do componente de notificações */

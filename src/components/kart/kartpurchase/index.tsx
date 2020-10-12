@@ -1,12 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { convertNumberToPrice } from "../../../core/utils";
+import { useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export interface IKartPurchase {
   lista_produtos: any;
 }
 
 export default function KartPurchase({ lista_produtos }: IKartPurchase) {
+  const history = useHistory();
+
   const produtos_carrinho = useSelector(
     (state: any) => state.shopping_kart_reducer.produtos_carrinho
   );
@@ -50,6 +54,14 @@ export default function KartPurchase({ lista_produtos }: IKartPurchase) {
     else return 0;
   };
 
+  const handleChangeFinalizarCompra = () => {
+    if (!getQuantidadeItems()) {
+      toast.error("Não há items para serem comprados!");
+      return;
+    }
+    history.push("/finalizacao-pedido");
+  };
+
   return (
     <div className="kart-purchase border">
       <div className="kart-purchase-title">
@@ -82,6 +94,7 @@ export default function KartPurchase({ lista_produtos }: IKartPurchase) {
         <button
           className="btn primary-background kart-purchase-button btn-block text-white rounded-0"
           type="button"
+          onClick={handleChangeFinalizarCompra}
         >
           Finalizar Compra
         </button>

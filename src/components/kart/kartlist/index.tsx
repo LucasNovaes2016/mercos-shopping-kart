@@ -1,4 +1,3 @@
-import { Person } from "@material-ui/icons";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import KartListItem from "./kartlistitem";
