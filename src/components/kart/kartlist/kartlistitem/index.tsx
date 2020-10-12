@@ -8,9 +8,15 @@ import { useDispatch } from "react-redux";
 import {
   REMOVER_PRODUTO_CARRINHO,
   ALTERAR_QUANTIDADE_PRODUTO_CARRINHO,
+  ADICIONAR_OBSERVACAO_PRODUTO_CARRINHO,
 } from "../../../../core/redux/types";
 
 export default function KartListItem({ produto_formatado }: any) {
+  const [modoAdicionarObservacao, setModoAdicionarObservacao] = React.useState<
+    boolean
+  >(false);
+  const [observacao, setObservacao] = React.useState<string>("");
+
   const dispatch = useDispatch();
 
   const removeProdutoCarrinho = (id: string) => {
@@ -38,6 +44,18 @@ export default function KartListItem({ produto_formatado }: any) {
     });
   };
 
+  const handleChangeObservacao = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch({
+      type: ADICIONAR_OBSERVACAO_PRODUTO_CARRINHO,
+      payload: {
+        id: produto_formatado.id,
+        observacao: e.target.value,
+      },
+    });
+
+    if (!e.target.value.length) setModoAdicionarObservacao(false);
+  };
+
   return (
     <div className="kart-item" id={produto_formatado.id}>
       <div className="d-lg-flex justify-content-between">
@@ -56,10 +74,25 @@ export default function KartListItem({ produto_formatado }: any) {
             {produto_formatado.sku}
           </p>
 
-          <ChatBubbleOutline className="primary-shade mr-1 primary-icon" />
-          <p className="kart-item-info-obs primary-shade">
-            Adicionar Observação
-          </p>
+          <div
+            style={{ cursor: "pointer" }}
+            onClick={() => setModoAdicionarObservacao(!modoAdicionarObservacao)}
+          >
+            <ChatBubbleOutline className="primary-shade mr-1 primary-icon" />
+            <p className="kart-item-info-obs primary-shade">
+              {modoAdicionarObservacao ? "Remover" : "Adicionar"} Observação
+            </p>
+          </div>
+          <input
+            type="text"
+            className={`form-control ${
+              modoAdicionarObservacao ? "" : "d-none"
+            }`}
+            placeholder="Sua observação..."
+            style={{ width: "150px" }}
+            value={produto_formatado.observacao}
+            onChange={handleChangeObservacao}
+          />
         </div>
 
         <div className="kart-item-quantity align-top">

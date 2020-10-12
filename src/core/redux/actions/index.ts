@@ -8,12 +8,11 @@ import {
 
 // Adicionar Observacao...
 export const adicionarObservacaoProdutoCarrinho = (
-  id: number,
-  observacao: string
+  observacao_e_produto: any
 ) => {
   return {
     type: ADICIONAR_OBSERVACAO_PRODUTO_CARRINHO,
-    payload: { id, observacao },
+    payload: observacao_e_produto,
   };
 };
 
