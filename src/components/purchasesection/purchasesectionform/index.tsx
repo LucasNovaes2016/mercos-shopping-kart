@@ -2,19 +2,15 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { dadosVendaSchema } from "./validation";
-import { Formik, FormikBag, FormikValues } from "formik";
+import { Formik, FormikValues } from "formik";
 import { isEmpty } from "lodash";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { RESETAR_ESTADO_GLOBAL } from "../../../core/redux/types";
 
-export interface IPurchaseSectionForm {
-  lista_produtos: any;
-}
+/* Componente para renderizar o formulario de confirmação de pagamento */
 
-export default function PurchaseSectionForm({
-  lista_produtos,
-}: IPurchaseSectionForm) {
+export default function PurchaseSectionForm() {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -30,8 +26,6 @@ export default function PurchaseSectionForm({
       delete produto_carrinho["quantidade_escolhida"];
       produtos_carrinho_formatado.push(produto_carrinho);
     });
-
-    console.log("produtos carrinho formatado = ", produtos_carrinho_formatado);
 
     const req = {
       itens: produtos_carrinho_formatado,

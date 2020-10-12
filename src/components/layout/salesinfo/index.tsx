@@ -4,6 +4,8 @@ import Person from "@material-ui/icons/LocalShipping";
 import LocalOffer from "@material-ui/icons/LocalOffer";
 import CreditCard from "@material-ui/icons/CreditCard";
 
+/* Componente para renderizar informações sobre as vendas */
+
 export default function SalesInfo({
   delivery_info,
   desconto_info,

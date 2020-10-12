@@ -10,8 +10,7 @@ import {
   desconto_info_default,
   pagamento_info_default,
 } from "./core/data/local";
-import { Provider } from "react-redux";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SETAR_PRODUTOS_CARRINHO } from "./core/redux/types";
 
 function App() {
@@ -48,7 +47,7 @@ function App() {
       .catch((error) => {
         toast.warning("Erro ao carregar lista de produtos.");
       });
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

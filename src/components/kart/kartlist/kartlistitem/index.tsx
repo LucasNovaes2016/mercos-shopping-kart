@@ -10,13 +10,14 @@ import {
   ALTERAR_QUANTIDADE_PRODUTO_CARRINHO,
   ADICIONAR_OBSERVACAO_PRODUTO_CARRINHO,
 } from "../../../../core/redux/types";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
+
+/* Componente para renderizar um item individual do carrinho de compras, bem como cuidar das suas logicas especificas */
 
 export default function KartListItem({ produto_formatado }: any) {
   const [modoAdicionarObservacao, setModoAdicionarObservacao] = React.useState<
     boolean
   >(false);
-  const [observacao, setObservacao] = React.useState<string>("");
 
   const dispatch = useDispatch();
 

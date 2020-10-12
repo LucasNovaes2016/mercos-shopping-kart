@@ -12,6 +12,8 @@ export interface IHeader {
   lista_produtos: any;
 }
 
+/* Componente para abrigar os elementos que compoe o cabecalho da aplicacao */
+
 export default function Header({ lista_produtos }: IHeader) {
   return (
     <>

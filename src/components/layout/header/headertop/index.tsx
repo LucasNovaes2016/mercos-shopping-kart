@@ -4,6 +4,8 @@ import WhatsApp from "@material-ui/icons/WhatsApp";
 import Room from "@material-ui/icons/Room";
 import Person from "@material-ui/icons/Person";
 
+/* Componente para renderizar a parte superior do cabecalho */
+
 export default function HeaderTop({ numero, usuario, local }: IHeaderTop) {
   return (
     <div className="d-flex justify-content-between header-top">

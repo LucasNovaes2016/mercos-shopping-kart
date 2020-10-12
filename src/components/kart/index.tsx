@@ -7,6 +7,8 @@ export interface IKart {
   lista_produtos: any;
 }
 
+/* Componente para renderizar todo o carrinho de compras */
+
 export default function Kart({ lista_produtos }: IKart) {
   return (
     <div className="container">

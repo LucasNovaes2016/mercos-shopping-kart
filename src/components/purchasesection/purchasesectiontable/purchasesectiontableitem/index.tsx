@@ -1,9 +1,9 @@
 import React from "react";
 import { convertNumberToPrice } from "../../../../core/utils";
 
-export default function PurchaseSectionTableItem({ item }: any) {
-  console.log("item = ", item);
+/* Componente para renderizar um item especifico da tabela de produtos escolhidos */
 
+export default function PurchaseSectionTableItem({ item }: any) {
   return (
     <tr>
       <td>{item.nome}</td>

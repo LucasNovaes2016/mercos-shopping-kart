@@ -1,11 +1,13 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { convertNumberToPrice } from "../../../core/utils";
 import PurchaseSectionTableItem from "./purchasesectiontableitem";
 
 export interface IPurchaseSectionTable {
   lista_produtos: any;
 }
+
+/* Componente para renderizar os produtos escolhidos em uma tabela */
 
 export default function PurchaseSectionTable({
   lista_produtos,
@@ -21,17 +23,6 @@ export default function PurchaseSectionTable({
   const texto_pesquisado = useSelector(
     (state: any) => state.shopping_kart_reducer.texto_pesquisado
   );
-
-  const formatarProduto = (produto_carrinho: any) => {
-    const produto = lista_produtos.find(
-      (produto: any) => produto.id === produto_carrinho.id
-    );
-    return {
-      ...produto,
-      observacao: produto_carrinho.observacao,
-      quantidade_escolhida: produto_carrinho.quantidade_escolhida,
-    };
-  };
 
   const filtrarProdutosCarrinho = (produto: any, texto_pesquisa: string) => {
     const texto_pesquisa_minuscula = texto_pesquisa.toLowerCase();
@@ -64,7 +55,7 @@ export default function PurchaseSectionTable({
   const getTotalEmProdutos = (): number => {
     let total_em_produtos = 0;
 
-    produtos_carrinho.map((produto_carrinho: any) => {
+    produtos_carrinho.forEach((produto_carrinho: any) => {
       if (produto_carrinho.quantidade_escolhida) {
         const preco_produto = getPrecoProduto(produto_carrinho.id);
 
@@ -85,6 +76,17 @@ export default function PurchaseSectionTable({
   };
 
   React.useEffect(() => {
+    const formatarProduto = (produto_carrinho: any) => {
+      const produto = lista_produtos.find(
+        (produto: any) => produto.id === produto_carrinho.id
+      );
+      return {
+        ...produto,
+        observacao: produto_carrinho.observacao,
+        quantidade_escolhida: produto_carrinho.quantidade_escolhida,
+      };
+    };
+
     setListaProdutosFormatados(
       produtos_carrinho
         .map((produto_carrinho: any) => formatarProduto(produto_carrinho))
@@ -92,9 +94,7 @@ export default function PurchaseSectionTable({
           (produto_carrinho: any) => produto_carrinho.quantidade_escolhida
         )
     );
-  }, [produtos_carrinho]);
-
-  console.log("listaProdutosFormatados = ", listaProdutosFormatados);
+  }, [produtos_carrinho, lista_produtos]);
 
   return (
     <div className="purchase-section-table">

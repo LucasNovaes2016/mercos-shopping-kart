@@ -3,6 +3,8 @@ import Search from "@material-ui/icons/Search";
 import { useDispatch } from "react-redux";
 import { SETAR_TEXTO_PESQUISADO } from "../../../../../core/redux/types";
 
+/* Componente para renderizar a barra de pesquisa do cabecalho */
+
 export default function HeaderBottomSearchInput() {
   const [textoPesquisa, setTextoPesquisa] = React.useState<string>("");
 

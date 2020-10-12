@@ -7,6 +7,8 @@ export interface IHeaderBottom {
   lista_produtos: any;
 }
 
+/* Componente para renderizar a parte inferior do cabecalho */
+
 export default function HeaderBottom({ lista_produtos }: IHeaderBottom) {
   return (
     <div className="header-bottom d-lg-flex justify-content-between">

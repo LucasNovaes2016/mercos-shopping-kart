@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { convertNumberToPrice } from "../../../core/utils";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -7,6 +7,8 @@ import { toast } from "react-toastify";
 export interface IKartPurchase {
   lista_produtos: any;
 }
+
+/* Componente para renderizar o card de finalização inicial dos pedidos escolhidos */
 
 export default function KartPurchase({ lista_produtos }: IKartPurchase) {
   const history = useHistory();
@@ -34,7 +36,7 @@ export default function KartPurchase({ lista_produtos }: IKartPurchase) {
   const getTotalEmProdutos = (): number => {
     let total_em_produtos = 0;
 
-    produtos_carrinho.map((produto_carrinho: any) => {
+    produtos_carrinho.forEach((produto_carrinho: any) => {
       if (produto_carrinho.quantidade_escolhida) {
         const preco_produto = getPrecoProduto(produto_carrinho.id);
 

@@ -1,6 +1,8 @@
 import React from "react";
 import Menu from "@material-ui/icons/Menu";
 
+/* Componente para renderizar o menu lateral do cabecalho */
+
 export default function HeaderBottomMenuItems() {
   return (
     <div>

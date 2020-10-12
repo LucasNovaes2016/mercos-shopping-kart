@@ -1,10 +1,12 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import KartListItem from "./kartlistitem";
 
 export interface IKartList {
   lista_produtos: any;
 }
+
+/* Componente para renderizar todos os itens no carrinho */
 
 export default function KartList({ lista_produtos }: IKartList) {
   const [listaProdutosFormatados, setListaProdutosFormatados] = React.useState<
@@ -19,17 +21,6 @@ export default function KartList({ lista_produtos }: IKartList) {
     (state: any) => state.shopping_kart_reducer.texto_pesquisado
   );
 
-  const formatarProduto = (produto_carrinho: any) => {
-    const produto = lista_produtos.find(
-      (produto: any) => produto.id === produto_carrinho.id
-    );
-    return {
-      ...produto,
-      observacao: produto_carrinho.observacao,
-      quantidade_escolhida: produto_carrinho.quantidade_escolhida,
-    };
-  };
-
   const filtrarProdutosCarrinho = (produto: any, texto_pesquisa: string) => {
     const texto_pesquisa_minuscula = texto_pesquisa.toLowerCase();
 
@@ -43,6 +34,17 @@ export default function KartList({ lista_produtos }: IKartList) {
   };
 
   React.useEffect(() => {
+    const formatarProduto = (produto_carrinho: any) => {
+      const produto = lista_produtos.find(
+        (produto: any) => produto.id === produto_carrinho.id
+      );
+      return {
+        ...produto,
+        observacao: produto_carrinho.observacao,
+        quantidade_escolhida: produto_carrinho.quantidade_escolhida,
+      };
+    };
+
     setListaProdutosFormatados(
       produtos_carrinho.map((produto_carrinho: any) =>
         formatarProduto(produto_carrinho)

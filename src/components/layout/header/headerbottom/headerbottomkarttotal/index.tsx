@@ -1,11 +1,13 @@
 import React from "react";
 import ShoppingCart from "@material-ui/icons/ShoppingCart";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { convertNumberToPrice } from "../../../../../core/utils";
 
 export interface IHeaderBottom {
   lista_produtos: any;
 }
+
+/* Componente para calcular e renderizazr o preco total a ser pago pelo cliente (já com os descontos) */
 
 export default function HeaderBottomKartTotal({
   lista_produtos,
@@ -33,7 +35,7 @@ export default function HeaderBottomKartTotal({
   const getTotalEmProdutos = (): number => {
     let total_em_produtos = 0;
 
-    produtos_carrinho.map((produto_carrinho: any) => {
+    produtos_carrinho.forEach((produto_carrinho: any) => {
       if (produto_carrinho.quantidade_escolhida) {
         const preco_produto = getPrecoProduto(produto_carrinho.id);
 
