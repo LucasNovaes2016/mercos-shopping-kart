@@ -15,7 +15,7 @@ export default function SalesInfo({
         <div className="row py-3">
           <div className="col-md-4">
             <div className="sales-info-item sales-info-item-right">
-              <Person className="secondary-shade-3 mr-1" />
+              <Person className="primary-icon secondary-shade-3 mr-1" />
               {delivery_info}
             </div>
           </div>
@@ -23,14 +23,15 @@ export default function SalesInfo({
           <div className="col-md-4">
             <div className="sales-info-item sales-info-item-center">
               {" "}
-              <LocalOffer className="secondary-shade-3 mr-1" />
+              <LocalOffer className="primary-iconsecondary-shade-3 mr-1" />
               {desconto_info}
             </div>
           </div>
           <div className="col-md-4">
             <div className="sales-info-item sales-info-item-left">
               {" "}
-              <CreditCard className="secondary-shade-3 mr-1" /> {pagamento_info}
+              <CreditCard className="primary-iconsecondary-shade-3 mr-1" />{" "}
+              {pagamento_info}
             </div>
           </div>
         </div>

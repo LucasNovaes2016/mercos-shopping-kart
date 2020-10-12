@@ -38,6 +38,16 @@
   color: #ffffff;
 }
 
+/* Estilização geral de icones */
+
+.primary-icon {
+  font-size: 20px !important;
+}
+
+.secondary-icon {
+  font-size: 24px !important;
+}
+
 /* Estilizações do componente Header */
 
 .header {
@@ -75,14 +85,11 @@
   line-height: 20px;
   font-weight: 500;
   min-width: 450px;
+  border-bottom: 2px solid black !important;
 }
 
 .search-input {
-  border-bottom: 2px solid black !important;
-  border-top: 0px !important;
-  border-left: 0px !important;
-  border-right: 0px !important;
-  border-radius: 0px !important;
+  border: 0px !important;
 }
 
 /* Estilização para o componente salesinfo */
@@ -189,6 +196,10 @@
   .header-bottom-kart-total {
     text-align: center;
     margin-top: 10px;
+  }
+
+  .header-bottom-nav {
+    justify-content: center !important;
   }
 
   .sales-info {

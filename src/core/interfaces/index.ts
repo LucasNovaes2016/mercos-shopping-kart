@@ -12,4 +12,5 @@ export interface ISalesInfo {
 
 export interface IApplicationState {
   produtos_carrinho: any;
+  texto_pesquisado: string;
 }

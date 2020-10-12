@@ -3,6 +3,7 @@ import {
   ALTERAR_QUANTIDADE_PRODUTO_CARRINHO,
   REMOVER_PRODUTO_CARRINHO,
   SETAR_PRODUTOS_CARRINHO,
+  SETAR_TEXTO_PESQUISADO,
 } from "../types";
 
 // Adicionar Observacao...
@@ -40,5 +41,13 @@ export const setarProdutosCarrinho = (produtos: any) => {
   return {
     type: SETAR_PRODUTOS_CARRINHO,
     payload: produtos,
+  };
+};
+
+// Setar texto pesquisado
+export const setarTextoPesquisado = (texto_pesquisado: string) => {
+  return {
+    type: SETAR_TEXTO_PESQUISADO,
+    payload: texto_pesquisado,
   };
 };

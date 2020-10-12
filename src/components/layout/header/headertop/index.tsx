@@ -9,16 +9,16 @@ export default function HeaderTop({ numero, usuario, local }: IHeaderTop) {
     <div className="d-flex justify-content-between header-top">
       <div>
         <div className="header-top-item px-2">
-          <WhatsApp /> {numero}
+          <WhatsApp className="primary-icon" /> {numero}
         </div>
       </div>
       <div>
         <div className="header-top-item px-2">
-          <Person />
+          <Person className="primary-icon" />
           {usuario}
         </div>
         <div className="header-top-item px-2">
-          <Room /> {local}
+          <Room className="primary-icon" /> {local}
         </div>
       </div>
     </div>

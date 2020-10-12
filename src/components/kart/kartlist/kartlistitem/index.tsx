@@ -3,6 +3,7 @@ import ChatBubbleOutline from "@material-ui/icons/ChatBubbleOutline";
 import Add from "@material-ui/icons/Add";
 import Remove from "@material-ui/icons/Remove";
 import Delete from "@material-ui/icons/Delete";
+import { convertNumberToPrice } from "../../../../core/utils";
 
 export default function KartListItem({ produto_formatado }: any) {
   return (
@@ -23,7 +24,7 @@ export default function KartListItem({ produto_formatado }: any) {
             {produto_formatado.sku}
           </p>
 
-          <ChatBubbleOutline className="primary-shade mr-1" />
+          <ChatBubbleOutline className="primary-shade mr-1 primary-icon" />
           <p className="kart-item-info-obs primary-shade">
             Adicionar Observação
           </p>
@@ -38,7 +39,7 @@ export default function KartListItem({ produto_formatado }: any) {
                 data-type="minus"
                 data-field="quant[s1]"
               >
-                <Remove className="secondary-shade-3" />
+                <Remove className="secondary-shade-3 primary-icon" />
               </button>
             </span>
             <input
@@ -57,7 +58,7 @@ export default function KartListItem({ produto_formatado }: any) {
                 data-type="plus"
                 data-field="quant[1]"
               >
-                <Add className="primary-shade" />
+                <Add className="primary-shade primary-icon" />
               </button>
             </span>
           </div>
@@ -66,11 +67,13 @@ export default function KartListItem({ produto_formatado }: any) {
         <div className="kart-item-price-trash">
           <div>
             R${" "}
-            {produto_formatado.quantidade_escolhida *
-              produto_formatado.valor_unitario}
+            {convertNumberToPrice(
+              produto_formatado.quantidade_escolhida *
+                produto_formatado.valor_unitario
+            )}
           </div>
           <div className="mt-4 text-right">
-            <Delete className="primary-shade" />
+            <Delete className="primary-shade primary-icon" />
           </div>
         </div>
       </div>

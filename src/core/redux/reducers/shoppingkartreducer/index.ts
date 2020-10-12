@@ -3,12 +3,14 @@ import {
   ALTERAR_QUANTIDADE_PRODUTO_CARRINHO,
   REMOVER_PRODUTO_CARRINHO,
   SETAR_PRODUTOS_CARRINHO,
+  SETAR_TEXTO_PESQUISADO,
 } from "../../types";
 
 import { IApplicationState } from "../../../interfaces/index";
 
 const initialState: IApplicationState = {
   produtos_carrinho: [],
+  texto_pesquisado: "",
 };
 
 export default (state = initialState, action: any) => {
@@ -48,6 +50,11 @@ export default (state = initialState, action: any) => {
       return {
         ...state,
         produtos_carrinho: action.payload,
+      };
+    case SETAR_TEXTO_PESQUISADO:
+      return {
+        ...state,
+        texto_pesquisado: action.payload,
       };
     default:
       return state;
