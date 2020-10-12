@@ -2,9 +2,11 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { dadosVendaSchema } from "./validation";
-import { Formik } from "formik";
+import { Formik, FormikBag, FormikValues } from "formik";
 import { isEmpty } from "lodash";
 import { toast } from "react-toastify";
+import axios from "axios";
+import { RESETAR_ESTADO_GLOBAL } from "../../../core/redux/types";
 
 export interface IPurchaseSectionForm {
   lista_produtos: any;
@@ -13,20 +15,55 @@ export interface IPurchaseSectionForm {
 export default function PurchaseSectionForm({
   lista_produtos,
 }: IPurchaseSectionForm) {
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const produtos_carrinho = useSelector(
     (state: any) => state.shopping_kart_reducer.produtos_carrinho
   );
 
-  // const handleChangeFinalizarCompra = () => {
-  //   history.push("/");
-  // };
+  const onComprar = (values: FormikValues, bag: any) => {
+    const produtos_carrinho_formatado: any = [];
 
-  const onComprar = () => {
-    console.log(
-      "Comprar os itens do carrinho, resetar logica e mandar de volta pra tela inicial"
-    );
+    produtos_carrinho.forEach((produto_carrinho: any) => {
+      produto_carrinho.quantidade = produto_carrinho.quantidade_escolhida;
+      delete produto_carrinho["quantidade_escolhida"];
+      produtos_carrinho_formatado.push(produto_carrinho);
+    });
+
+    console.log("produtos carrinho formatado = ", produtos_carrinho_formatado);
+
+    const req = {
+      itens: produtos_carrinho_formatado,
+      endereco: {
+        rua: values.rua,
+        bairro: values.bairro,
+        numero: values.numero,
+      },
+      cartao: {
+        numero: values.numero,
+        cvc: values.cvc,
+      },
+    };
+
+    axios
+      .post(
+        "https://5f2c373bffc88500167b8cce.mockapi.io/carrinho",
+        JSON.stringify(req)
+      )
+      .then((res: any) => {
+        bag.setSubmitting(false);
+        toast.success("Produtos comprados com sucesso.");
+        dispatch({
+          type: RESETAR_ESTADO_GLOBAL,
+        });
+
+        history.push("/");
+      })
+      .catch((err: any) => {
+        bag.setSubmitting(false);
+        toast.error("Erro ao salvar os produtos");
+      });
   };
 
   return (
@@ -127,7 +164,22 @@ export default function PurchaseSectionForm({
                     {touched.numero_cartao && errors.numero_cartao}
                   </div>
                 </div>
-                <div className="col-lg-6">
+                <div className="col-lg-3">
+                  <button
+                    className="btn bg-info text-white btn-block rounded-0"
+                    type="button"
+                    style={{ marginTop: "35px" }}
+                    onClick={() => {
+                      history.push("/");
+                      dispatch({
+                        type: RESETAR_ESTADO_GLOBAL,
+                      });
+                    }}
+                  >
+                    Esvaziar Carrinho
+                  </button>
+                </div>
+                <div className="col-lg-3">
                   <button
                     className="btn primary-background btn-block text-white rounded-0"
                     type="submit"

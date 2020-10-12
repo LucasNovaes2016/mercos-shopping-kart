@@ -4,6 +4,7 @@ import {
   REMOVER_PRODUTO_CARRINHO,
   SETAR_PRODUTOS_CARRINHO,
   SETAR_TEXTO_PESQUISADO,
+  RESETAR_ESTADO_GLOBAL,
 } from "../../types";
 
 import { IApplicationState } from "../../../interfaces/index";
@@ -55,6 +56,19 @@ export default (state = initialState, action: any) => {
       return {
         ...state,
         texto_pesquisado: action.payload,
+      };
+    case RESETAR_ESTADO_GLOBAL:
+      return {
+        ...state,
+        texto_pesquisado: "",
+        produtos_carrinho: state.produtos_carrinho.map(
+          (produto_carrinho: any) => {
+            return {
+              ...produto_carrinho,
+              quantidade_escolhida: 0,
+            };
+          }
+        ),
       };
     default:
       return state;

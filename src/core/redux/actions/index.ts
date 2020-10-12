@@ -4,6 +4,7 @@ import {
   REMOVER_PRODUTO_CARRINHO,
   SETAR_PRODUTOS_CARRINHO,
   SETAR_TEXTO_PESQUISADO,
+  RESETAR_ESTADO_GLOBAL,
 } from "../types";
 
 // Adicionar Observacao...
@@ -45,5 +46,12 @@ export const setarTextoPesquisado = (texto_pesquisado: string) => {
   return {
     type: SETAR_TEXTO_PESQUISADO,
     payload: texto_pesquisado,
+  };
+};
+
+// Restar estado global
+export const resetarEstadoGlobal = () => {
+  return {
+    type: SETAR_TEXTO_PESQUISADO,
   };
 };
