@@ -46,6 +46,11 @@
   color: #ffffff;
 }
 
+.invalid-feedback {
+  display: block !important;
+  color: #d44950;
+}
+
 /* Estilização geral de icones */
 
 .primary-icon {

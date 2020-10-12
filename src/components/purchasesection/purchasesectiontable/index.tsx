@@ -108,6 +108,13 @@ export default function PurchaseSectionTable({
               >
                 {" "}
                 Produtos Escolhidos{" "}
+                <span className="font-weight-bold">
+                  {" "}
+                  {`(TOTAL: R$ ${convertNumberToPrice(
+                    getTotalEmProdutos() - getDescontoReais()
+                  )})`}{" "}
+                </span>
+                <span className="font-weight-bold"> </span>
               </td>
             </tr>
             <tr>
