@@ -5,7 +5,10 @@ import Remove from "@material-ui/icons/Remove";
 import Delete from "@material-ui/icons/Delete";
 import { convertNumberToPrice } from "../../../../core/utils";
 import { useDispatch } from "react-redux";
-import { REMOVER_PRODUTO_CARRINHO } from "../../../../core/redux/types";
+import {
+  REMOVER_PRODUTO_CARRINHO,
+  ALTERAR_QUANTIDADE_PRODUTO_CARRINHO,
+} from "../../../../core/redux/types";
 
 export default function KartListItem({ produto_formatado }: any) {
   const dispatch = useDispatch();
@@ -14,6 +17,24 @@ export default function KartListItem({ produto_formatado }: any) {
     dispatch({
       type: REMOVER_PRODUTO_CARRINHO,
       payload: id,
+    });
+  };
+
+  const handleChangeQuantidadeEscolhida = (operation: string) => {
+    const nova_quantidade =
+      operation === "plus"
+        ? Math.min(
+            produto_formatado.quantidade_escolhida + 1,
+            produto_formatado.quantidade
+          )
+        : Math.max(produto_formatado.quantidade_escolhida - 1, 0);
+
+    dispatch({
+      type: ALTERAR_QUANTIDADE_PRODUTO_CARRINHO,
+      payload: {
+        id: produto_formatado.id,
+        quantidade_escolhida: nova_quantidade,
+      },
     });
   };
 
@@ -49,6 +70,7 @@ export default function KartListItem({ produto_formatado }: any) {
                 className="btn btn-default btn-number"
                 data-type="minus"
                 data-field="quant[s1]"
+                onClick={(e) => handleChangeQuantidadeEscolhida("minus")}
               >
                 <Remove className="secondary-shade-3 primary-icon" />
               </button>
@@ -57,10 +79,9 @@ export default function KartListItem({ produto_formatado }: any) {
               type="text"
               name="quant[1]"
               className="form-control input-number kart-item-quantity-number"
-              value="1"
+              value={produto_formatado.quantidade_escolhida}
               min="1"
               disabled
-              max={produto_formatado.quantidade}
             />
             <span className="input-group-btn">
               <button
@@ -68,6 +89,7 @@ export default function KartListItem({ produto_formatado }: any) {
                 className="btn btn-default btn-number"
                 data-type="plus"
                 data-field="quant[1]"
+                onClick={(e) => handleChangeQuantidadeEscolhida("plus")}
               >
                 <Add className="primary-shade primary-icon" />
               </button>
