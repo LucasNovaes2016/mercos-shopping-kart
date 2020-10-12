@@ -4,8 +4,19 @@ import Add from "@material-ui/icons/Add";
 import Remove from "@material-ui/icons/Remove";
 import Delete from "@material-ui/icons/Delete";
 import { convertNumberToPrice } from "../../../../core/utils";
+import { useDispatch } from "react-redux";
+import { REMOVER_PRODUTO_CARRINHO } from "../../../../core/redux/types";
 
 export default function KartListItem({ produto_formatado }: any) {
+  const dispatch = useDispatch();
+
+  const removeProdutoCarrinho = (id: string) => {
+    dispatch({
+      type: REMOVER_PRODUTO_CARRINHO,
+      payload: id,
+    });
+  };
+
   return (
     <div className="kart-item" id={produto_formatado.id}>
       <div className="d-lg-flex justify-content-between">
@@ -73,7 +84,13 @@ export default function KartListItem({ produto_formatado }: any) {
             )}
           </div>
           <div className="mt-4 text-right">
-            <Delete className="primary-shade primary-icon" />
+            <div
+              className="ml-auto"
+              style={{ cursor: "pointer" }}
+              onClick={() => removeProdutoCarrinho(produto_formatado.id)}
+            >
+              <Delete className="primary-shade primary-icon" />
+            </div>
           </div>
         </div>
       </div>

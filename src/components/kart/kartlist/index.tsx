@@ -82,7 +82,7 @@ export default function KartList({ lista_produtos }: IKartList) {
           />
         ))
       ) : (
-        <p className="lead">Carregando Produtos...</p>
+        <p className="lead">Não foram encontrados produtos...</p>
       )}
     </>
   );
