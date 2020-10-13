@@ -75,7 +75,7 @@ export default function KartListItem({ produto_formatado }: any) {
         <div className="kart-item-info">
           <h1 className="kart-item-info-name">{produto_formatado.nome}</h1>
           <p className="kart-item-info-sku text-muted">
-            {produto_formatado.sku}
+            {`SKU ${produto_formatado.sku}`}
           </p>
 
           <div
